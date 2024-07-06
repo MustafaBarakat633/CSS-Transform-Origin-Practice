@@ -1,0 +1,157 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-clr: #01126b;
+  --square-clr: #284b8a;
+  --red-clr: #e0344b;
+}
+
+body {
+  font-family: monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-clr);
+}
+
+.container {
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.container > div {
+  --box-size: 120px;
+  width: var(--box-size);
+  height: var(--box-size);
+  border: 2px solid var(--red-clr);
+  position: relative;
+}
+
+span {
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: var(--square-clr);
+  position: relative;
+  animation-name: rotating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+@keyframes rotating {
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.square::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--red-clr);
+}
+
+.one .square {
+  transform-origin: top left;
+}
+
+.one .square::before {
+  top: 0;
+  left: 0;
+}
+
+.two .square {
+  transform-origin: top center;
+}
+
+.two .square::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.three .square {
+  transform-origin: top right;
+}
+
+.three .square::before {
+  right: 0;
+}
+
+.four .square {
+  transform-origin: center left;
+}
+
+.four .square::before {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.five .square {
+  transform-origin: center center;
+}
+
+.five .square::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.six .square {
+  transform-origin: center right;
+}
+
+.six .square::before {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.seven .square {
+  transform-origin: bottom left;
+}
+
+.seven .square::before {
+  bottom: 0;
+}
+
+.eight .square {
+  transform-origin: bottom center;
+}
+
+.eight .square::before {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nine .square {
+  transform-origin: bottom right;
+}
+
+.nine .square::before {
+  right: 0;
+  bottom: 0;
+}
