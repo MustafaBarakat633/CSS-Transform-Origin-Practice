@@ -29,7 +29,7 @@ body {
 }
 
 .container > div {
-  --box-size: 120px;
+  --box-size: 160px;
   width: var(--box-size);
   height: var(--box-size);
   border: 2px solid var(--red-clr);
